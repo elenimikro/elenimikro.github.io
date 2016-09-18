@@ -51,8 +51,8 @@ SOCIAL = (('You can add links in your config file', '#'),
           ('github', 'https://github.com/elenimikro'),
           ('linkedin', 'https://www.linkedin.com/in/elmikro'),
           ('twitter', 'https://twitter.com/mikrohelen'),
-          ('rss', 'SITEURL/%s' % (SITEURL, FEED_ALL_ATOM)),
-)
+          ('rss', '%s/%s' % (SITEURL, FEED_ALL_ATOM)),
+          )
 
 DEFAULT_PAGINATION = 10
 
