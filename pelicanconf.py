@@ -7,8 +7,9 @@ AUTHOR = u'mikrohelen'
 SITENAME = u'mikrohelen'
 SITESUBTITLE = u"Eleni Mikroyannidi's personal space"
 # SITEURL = 'mikrohelen.com'
+SITEURL = 'https://elenimikro.github.io/'
 
-GITHUB_URL = 'https://github.com/elenimikro/elenimikro.github.io'
+GITHUB_URL = 'https://github.com/elenimikro/elenimikro.github.io/'
 TWITTER_USERNAME = 'mikrohelen'
 
 THEME = 'themes/pure-single'
@@ -28,7 +29,7 @@ PLUGIN_PATHS = ['pelican-plugins']
 
 
 # Feed generation is usually not desired when developing
-FEED_ALL_ATOM = None
+FEED_ALL_ATOM = 'feeds/all.atom.xml'
 CATEGORY_FEED_ATOM = None
 TRANSLATION_FEED_ATOM = None
 AUTHOR_FEED_ATOM = None
@@ -50,7 +51,7 @@ SOCIAL = (('You can add links in your config file', '#'),
           ('github', 'https://github.com/elenimikro'),
           ('linkedin', 'https://www.linkedin.com/in/elmikro'),
           ('twitter', 'https://twitter.com/mikrohelen'),
-          ('rss', '%s/%s' % (FEED_DOMAIN, FEED_ALL_ATOM)),
+          ('rss', 'SITEURL/%s' % (SITEURL, FEED_ALL_ATOM)),
 )
 
 DEFAULT_PAGINATION = 10
