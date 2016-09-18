@@ -68,3 +68,6 @@ themes/rossant-pure/templates/sc.html
 themes/rossant-pure/templates/sidebar.html
 themes/rossant-pure/templates/social.html
 themes/rossant-pure/templates/tag.html
+output/feeds/all.atom.xml
+output/feeds/misc.atom.xml
+pelican-plugins/

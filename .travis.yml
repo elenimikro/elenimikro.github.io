@@ -1,4 +1,5 @@
 language: python
+python: - 2.7
 sudo: required
 branches:
   only:
@@ -7,6 +8,7 @@ env:
   global:
     secure: "KpSdR1EqXCtn49DZds5IhjwpC/pc1ooQxHE/s+RpBWaHoly3umLYzWoH/d5oA1FIU66oBym6vsCVU6gaktmZDLKEnttguy5mre5L1982B+yXQY1Fw4MxGZyq+nucj9NnVjgc+Q9+ZwIu3OIfNrKYmNmd7v6H74IC7oGJ4sFXifXLMVKclIoCuFaKd4tu3wvpLDmO6GPR2j27XfX69FRDSUjC2FB8Sa5zGv0PEjCoFBa9v8yOs5vF36mKfOgRrQ62bnYvZFyr70swZoJ66RZ77BoJrcVfCDhHTtjKb4CeH8XsA6xQDTrnIc9YTi8cdGguQTHZMtNZ9XGj0hbTq2DEzfvzO5xaALySO0Dr4F3QC5cXGFtHCiY+dhgz6ZnaCPyDXC2jgJ01mMb13kJozPrq0VhuLwE7oZ4wmQUfUlKoSRdDey8VRjAstNCasZinOCOOx/5oFwvbwO0BkSRd73LPH7ozC4BEFHcsD2G7bvCGJ/JSDCNYb/UjCkB81jlvEfjQBvoahcki965W2pzrG25K1qDic4KgQDb6LwV1ZZF21pQ+Dl+SsZVKuYRJM0vPcBnqgTcIW0FfNUCQ5Fs77BA9NUeLgyXISe0ogUUAYBLSENDDyoGp/CGWDs7DzjQh4OX/d7sz4BvQwOK7Oi3II9XP04FTV/grz/kJBX4zrFC21xo="
 install:
+- pip install -r requirements.txt --use-mirrors
 - pip install ghp-import
 - git clone https://github.com/getpelican/pelican-plugins
 script:
