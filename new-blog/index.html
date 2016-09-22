@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="mikrohelen, Eleni Mikroyannidi's personal space">
+
+        <link rel="alternate"  href="None/feeds/all.atom.xml" type="application/atom+xml" title="mikrohelen Full Atom Feed"/>
+
+        <title>New Blog // mikrohelen // Eleni Mikroyannidi's personal space</title>
+
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.3.0/pure-min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://elenimikro.github.io/theme/css/pure.css">
+    <link rel="stylesheet" href="https://elenimikro.github.io/theme/css/pygments.css">
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/fitvids/1.0.1/jquery.fitvids.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $(".content").fitVids();
+        });
+    </script>
+</head>
+
+<body>
+    <div class="pure-g-r" id="layout">
+        <div class="sidebar pure-u">
+            <div class="cover-img" style="background-image: url('/assets/cover_photo.jpg')">
+                <div class="cover-body">
+                    <header class="header">
+                        <hgroup>
+                            <img class="avatar" src="/assets/mikrohelen_southpark.jpg">
+                            <h1 class="brand-main"><a href="https://elenimikro.github.io">mikrohelen</a></h1>
+                            <p class="tagline">Eleni Mikroyannidi's personal space</p>
+                                <p class="links"><a href="/">Home</a></p>
+                                <p class="links"><a href="/about/">About</a></p>
+                                <p class="social">
+                                    <a href="#">
+                                        <i class="fa fa-You can add links in your config file fa-3x"></i>
+                                    </a>
+                                    <a href="#">
+                                        <i class="fa fa-Another social link fa-3x"></i>
+                                    </a>
+                                    <a href="https://github.com/elenimikro">
+                                        <i class="fa fa-github fa-3x"></i>
+                                    </a>
+                                    <a href="https://www.linkedin.com/in/elmikro">
+                                        <i class="fa fa-linkedin fa-3x"></i>
+                                    </a>
+                                    <a href="https://twitter.com/mikrohelen">
+                                        <i class="fa fa-twitter fa-3x"></i>
+                                    </a>
+                                    <a href="https://elenimikro.github.io//feeds/all.atom.xml">
+                                        <i class="fa fa-rss fa-3x"></i>
+                                    </a>
+                                </p>
+                        </hgroup>
+                    </header>
+                </div>
+            </div>
+        </div>
+    <div class="pure-u">
+        <div class="content">
+            <section class="post">
+                <header class="post-header">
+                    <h1>New&nbsp;Blog</h1>
+                        <p class="post-meta">
+                            // under                                 <a class="post-category" href="https://elenimikro.github.io/tag/pelican.html">pelican</a>
+                                <a class="post-category" href="https://elenimikro.github.io/tag/python.html">python</a>
+                                <a class="post-category" href="https://elenimikro.github.io/tag/blog.html">blog</a>
+                                <a class="post-category" href="https://elenimikro.github.io/tag/travis-ci.html">travis-ci</a>
+                        </p>
+                </header>
+            </section>
+            <p>Ok, this is my attempt to create a new blog using <a href="github.io">github</a> pages, <a href="http://docs.getpelican.com/en/3.6.3/">Pelican</a>, <a href="">Travis <span class="caps">CI</span></a>. I used to have a quite old fashioned blog (<a href="http://mikrohelen.net">mikrohelen.net</a>), which I haven&#8217;t touched for ages. So, I wanted to move on. I&#8217;m using heavily github so I found it an appealing option. I also develop in Python and I wanted a familiar framework to work with for blogging. After a bit of research, I ended up following the tutorials from <a href="http://cyrille.rossant.net/pelican-github/">cyrille.rossant.net</a>, <a href="http://crunk.io/post/introduction-to-pelican/">crunk.io</a> and a few others to setup my blog on github with the Pelican&nbsp;framework. </p>
+<h2 id="step-1-create-a-github-repository-based-on-your-github-username">Step 1: Create a github repository based on your github&nbsp;username</h2>
+<p>This is for setting up the website. Follow the steps from https://pages.github.com/. Mine is in <a href="https://github.com/elenimikro/elenimikro.github.io">elenimikro/elenimikro.github.io</a></p>
+<h2 id="step-2-clone-the-repo-and-setup-pelican">Step 2: Clone the repo and Setup&nbsp;Pelican</h2>
+<p>First clone the repo in your&nbsp;machine</p>
+<div class="highlight"><pre><span></span>$ git clone git@github.com:username/username.github.io.git
+</pre></div>
+
+
+<p>Then setup Pelican in the local folder - It&#8217;s better to use a clean environment to do that using <a href="http://docs.python-guide.org/en/latest/dev/virtualenvs/">virtualenvs</a></p>
+<div class="highlight"><pre><span></span>$ pip install pelican
+$ pip install pelican-markdown
+</pre></div>
+
+
+<p>follow the instructions in <a href="http://docs.getpelican.com/en/3.6.3/install.html">Installing Pelican</a> for installing and creating some&nbsp;content.</p>
+<h2 id="step-3-configure-pelican">Step 3: Configure&nbsp;Pelican</h2>
+<p>My blog structure looks like&nbsp;this:</p>
+<div class="highlight"><pre><span></span>content/
+    pages/
+        about.md
+    assets/
+    images/
+    2016-09-18-hello-world.md
+output/
+pelican-plugins/
+themes/
+Makefile
+pelicanconf.py 
+publishconf.py
+requirements.txt
+.travis.yml
+</pre></div>
+
+
+<p>Pelican can understand the different pages you want to include in the blog like the <code>about.md</code>. These are placed under <code>content/pages/</code>. All the posts can be placed in <code>content</code> and I have the <code>assets</code> folder for adding other images and resources that I need fo the&nbsp;blog. </p>
+<p>The Makefile is generated automatically during the wizard for generating the blog. If you want to edit the options this is the file to&nbsp;edit. </p>
+<p>The <code>requirements.txt</code> contains all the python depedencies for building the blog. The <code>.travis.yml</code> is the yaml file for building with Travis <span class="caps">CI</span> (see below for more&nbsp;info). </p>
+<p>The <code>pelicanconf.py</code> is the config file for the blog. The <code>publishconf.py</code> is invoked for publishing the blog. These are generated automatically but you&#8217;ll have to tweak them a bit to set them up with your&nbsp;website. </p>
+<p>Some things from my configurations file (<code>pelicanconf.py</code>):
+I got from <a href="http://crunk.io/post/introduction-to-pelican/">crunk.io</a> the setup of clean&nbsp;URLs:</p>
+<div class="highlight"><pre><span></span><span class="c1">#clean URLs</span>
+<span class="n">ARTICLE_URL</span> <span class="o">=</span> <span class="s1">&#39;{slug}/&#39;</span>
+<span class="n">ARTICLE_SAVE_AS</span> <span class="o">=</span> <span class="s1">&#39;{slug}/index.html&#39;</span>
+<span class="n">PAGE_URL</span> <span class="o">=</span> <span class="s1">&#39;{slug}/&#39;</span>
+<span class="n">PAGE_SAVE_AS</span> <span class="o">=</span> <span class="s1">&#39;{slug}/index.html&#39;</span>
+</pre></div>
+
+
+<p>His post also has some useful info for setting the <code>MD_EXTENSIONS</code> setting. </p>
+<h3 id="pelican-plugins">Pelican&nbsp;Plugins</h3>
+<p>The <code>pelican-plugins</code> contains all the plugins from https://github.com/getpelican/pelican-plugins. You can define it as a submodule or generate it on the fly when building with&nbsp;Travis. </p>
+<h3 id="theme">Theme</h3>
+<p>In the <code>themes/</code> folder you place the selected pelican theme. I&#8217;ve used the <a href="https://github.com/PurePelicanTheme/pure-single">Pure Single</a>&nbsp;theme. </p>
+<h2 id="step-4-building-with-travis">Step 4: Building with&nbsp;Travis</h2>
+<p>Setting up Travis was a bit tricky for me. There are different approaches for publishing the static pages. There is one approach where you create two repositories: one for the code and one for the static pages (the actual https://username.github.io website). I instead used the approach of having two branches in the <a href="https://github.com/elenimikro/elenimikro.github.io">username.github.io</a> repository, a <code>source</code> one where the source code goes and the <code>master</code>. I set it up to build with Travis <span class="caps">CI</span> and after a succesfull installation to invoke the Makefile for deploying the pages to the <code>master</code> branch. </p>
+<h3 id="create-the-yaml-file">Create the yaml&nbsp;file</h3>
+<p>My <code>.travis.yml</code> files looks like&nbsp;this:</p>
+<div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">language</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">python</span>
+<span class="l l-Scalar l-Scalar-Plain">python</span><span class="p p-Indicator">:</span> 
+<span class="p p-Indicator">-</span> <span class="s">&quot;2.7&quot;</span>
+<span class="l l-Scalar l-Scalar-Plain">sudo</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">required</span>
+<span class="l l-Scalar l-Scalar-Plain">branches</span><span class="p p-Indicator">:</span>
+  <span class="l l-Scalar l-Scalar-Plain">only</span><span class="p p-Indicator">:</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">source</span>
+<span class="l l-Scalar l-Scalar-Plain">env</span><span class="p p-Indicator">:</span>
+  <span class="l l-Scalar l-Scalar-Plain">global</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">secure</span><span class="p p-Indicator">:</span> <span class="s">&quot;XXXXXX&quot;</span>
+<span class="l l-Scalar l-Scalar-Plain">install</span><span class="p p-Indicator">:</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">pip install -r requirements.txt</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">pip install ghp-import</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">git clone https://github.com/getpelican/pelican-plugins</span>
+<span class="l l-Scalar l-Scalar-Plain">script</span><span class="p p-Indicator">:</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">make publish github</span>
+</pre></div>
+
+
+<p>The env block is added by the travis tool, so don&#8217;t include it in the original yaml file. Login to Github to get an <a href="https://help.github.com/articles/creating-an-access-token-for-command-line-use/">Authentication Token</a>. Make sure the token has access to the repo:
+<img alt="Github Authentication Token for Travis CI" src="https://elenimikro.github.io/images/Github-Travis-2016-09-18.png" /></p>
+<p>In your local project, install the travis command line tool&nbsp;with:</p>
+<div class="highlight"><pre><span></span>$ sudo apt-get install ruby1.9.1-dev
+$ sudo gem install travis
+</pre></div>
+
+
+<p>and run from inside the&nbsp;repository:</p>
+<div class="highlight"><pre><span></span>$ travis encrypt <span class="nv">GH_TOKEN</span><span class="o">=</span>TOKENFROMGITHUB --add env.global 
+</pre></div>
+
+
+<p>This adds the <code>env.global</code> configuration in the <code>.travis.yml</code>. </p>
+<p>Also in the Travis <span class="caps">CI</span> project setup in the settings the follwing two variables:
+<img alt="Travis CI settings" src="https://elenimikro.github.io/images/Travis-CI-2016-09-18.png" /></p>
+<p>The <code>GH_TOKEN</code> is your github Authentication Token for Travis <span class="caps">CI</span>. </p>
+<h2 id="step-5-edit-makefile">Step 5: edit&nbsp;Makefile</h2>
+<p>Edit the <code>Makefile</code> on the <code>github publish</code> section to look like&nbsp;this:</p>
+<div class="highlight"><pre><span></span><span class="cp">#Edited the following lines to publish via travis</span>
+<span class="nl">github</span><span class="p">:</span> <span class="n">publish</span>
+    <span class="n">ghp</span><span class="o">-</span><span class="n">import</span> <span class="o">-</span><span class="n">n</span> <span class="err">$</span><span class="p">(</span><span class="n">OUTPUTDIR</span><span class="p">)</span> <span class="o">-</span><span class="n">b</span> <span class="n">master</span> <span class="o">-</span><span class="n">m</span> <span class="s">&quot;Generated by Travis&quot;</span>
+    <span class="n">git</span> <span class="n">push</span> <span class="o">-</span><span class="n">fq</span> <span class="nl">https</span><span class="p">:</span><span class="c1">//${GH_TOKEN}@github.com/$(TRAVIS_REPO_SLUG).git master</span>
+</pre></div>
+
+
+<h2 id="step-6-commit-build-and-deploy">Step 6: Commit, build and&nbsp;deploy</h2>
+<p>Commit and push the blog structure in the <code>source</code>  branch of the repository. If the setup is successful it will trigger the Travis <span class="caps">CI</span> job, which will generate the static files and publish them in the <code>master</code> branch. </p>
+<p>My master branch structure like this: https://github.com/elenimikro/elenimikro.github.io/tree/master. The pages are automatically served in&nbsp;https://elenimikro.github.io. </p>
+<h2 id="things-to-do">Things To&nbsp;Do</h2>
+<p>This is quite primitive yet. I need to setup <span class="caps">DISQUS</span> and get cracking with some more&nbsp;content. </p>
+            <a href="#" class="go-top">Go Top</a>
+<footer class="footer">
+    <p>&copy; mikrohelen &ndash;
+        Built with <a href="https://github.com/PurePelicanTheme/pure-single">Pure Theme</a>
+        for <a href="http://blog.getpelican.com/">Pelican</a>
+    </p>
+</footer>        </div>
+    </div>
+    </div>
+    <script>
+        var $top = $('.go-top');
+
+        // Show or hide the sticky footer button
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 200) {
+                $top.fadeIn(200);
+            } else {
+                $top.fadeOut(200);
+            }
+        });
+
+        // Animate the scroll to top
+        $top.click(function(event) {
+            event.preventDefault();
+            $('html, body').animate({scrollTop: 0}, 300);
+        })
+
+        // Makes sure that the href="#" attached to the <a> elements
+        // don't scroll you back up the page.
+        $('body').on('click', 'a[href="#"]', function(event) {
+            event.preventDefault();
+        });
+    </script>
+
+</body>
+</html>

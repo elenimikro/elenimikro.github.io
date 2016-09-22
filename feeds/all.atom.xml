@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>mikrohelen</title><link href="https://elenimikro.github.io/" rel="alternate"></link><link href="None/feeds/all.atom.xml" rel="self"></link><id>https://elenimikro.github.io/</id><updated>2016-09-18T13:42:00+01:00</updated><entry><title>Hello World</title><link href="https://elenimikro.github.io/hello-world/" rel="alternate"></link><published>2016-09-18T13:42:00+01:00</published><updated>2016-09-18T13:42:00+01:00</updated><author><name>mikrohelen</name></author><id>tag:elenimikro.github.io,2016-09-18:hello-world/</id><summary type="html">&lt;p&gt;My first post with the Pelican&amp;nbsp;framework. &lt;/p&gt;</summary></entry><entry><title>New Blog</title><link href="https://elenimikro.github.io/new-blog/" rel="alternate"></link><published>2016-09-18T00:00:00+01:00</published><updated>2016-09-18T00:00:00+01:00</updated><author><name>mikrohelen</name></author><id>tag:elenimikro.github.io,2016-09-18:new-blog/</id><summary type="html">&lt;p&gt;Ok, this is my attempt to create a new blog using &lt;a href="github.io"&gt;github&lt;/a&gt; pages, &lt;a href="http://docs.getpelican.com/en/3.6.3/"&gt;Pelican&lt;/a&gt;, &lt;a href=""&gt;Travis &lt;span class="caps"&gt;CI&lt;/span&gt;&lt;/a&gt;. I used to have a quite old fashioned blog (&lt;a href="http://mikrohelen.net"&gt;mikrohelen.net&lt;/a&gt;), which I haven&amp;#8217;t touched for ages. So, I wanted to move on. I&amp;#8217;m using heavily github so I found it an appealing option. I also develop in Python and I wanted a familiar framework to work with for blogging. After a bit of research, I ended up following the tutorials from &lt;a href="http://cyrille.rossant.net/pelican-github/"&gt;cyrille.rossant.net&lt;/a&gt;, &lt;a href="http://crunk.io/post/introduction-to-pelican/"&gt;crunk.io&lt;/a&gt; and a few others to setup my blog on github with the Pelican&amp;nbsp;framework. &lt;/p&gt;
+&lt;h2 id="step-1-create-a-github-repository-based-on-your-github-username"&gt;Step 1: Create a github repository based on your github&amp;nbsp;username&lt;/h2&gt;
+&lt;p&gt;This is for setting up the website. Follow the steps from https://pages.github.com/. Mine is in &lt;a href="https://github.com/elenimikro/elenimikro.github.io"&gt;elenimikro/elenimikro.github.io&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id="step-2-clone-the-repo-and-setup-pelican"&gt;Step 2: Clone the repo and Setup&amp;nbsp;Pelican&lt;/h2&gt;
+&lt;p&gt;First clone the repo in your&amp;nbsp;machine&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ git clone git@github.com:username/username.github.io.git
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Then setup Pelican in the local folder - It&amp;#8217;s better to use a clean environment to do that using &lt;a href="http://docs.python-guide.org/en/latest/dev/virtualenvs/"&gt;virtualenvs&lt;/a&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ pip install pelican
+$ pip install pelican-markdown
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;follow the instructions in &lt;a href="http://docs.getpelican.com/en/3.6.3/install.html"&gt;Installing Pelican&lt;/a&gt; for installing and creating some&amp;nbsp;content.&lt;/p&gt;
+&lt;h2 id="step-3-configure-pelican"&gt;Step 3: Configure&amp;nbsp;Pelican&lt;/h2&gt;
+&lt;p&gt;My blog structure looks like&amp;nbsp;this:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;content/
+    pages/
+        about.md
+    assets/
+    images/
+    2016-09-18-hello-world.md
+output/
+pelican-plugins/
+themes/
+Makefile
+pelicanconf.py 
+publishconf.py
+requirements.txt
+.travis.yml
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Pelican can understand the different pages you want to include in the blog like the &lt;code&gt;about.md&lt;/code&gt;. These are placed under &lt;code&gt;content/pages/&lt;/code&gt;. All the posts can be placed in &lt;code&gt;content&lt;/code&gt; and I have the &lt;code&gt;assets&lt;/code&gt; folder for adding other images and resources that I need fo the&amp;nbsp;blog. &lt;/p&gt;
+&lt;p&gt;The Makefile is generated automatically during the wizard for generating the blog. If you want to edit the options this is the file to&amp;nbsp;edit. &lt;/p&gt;
+&lt;p&gt;The &lt;code&gt;requirements.txt&lt;/code&gt; contains all the python depedencies for building the blog. The &lt;code&gt;.travis.yml&lt;/code&gt; is the yaml file for building with Travis &lt;span class="caps"&gt;CI&lt;/span&gt; (see below for more&amp;nbsp;info). &lt;/p&gt;
+&lt;p&gt;The &lt;code&gt;pelicanconf.py&lt;/code&gt; is the config file for the blog. The &lt;code&gt;publishconf.py&lt;/code&gt; is invoked for publishing the blog. These are generated automatically but you&amp;#8217;ll have to tweak them a bit to set them up with your&amp;nbsp;website. &lt;/p&gt;
+&lt;p&gt;Some things from my configurations file (&lt;code&gt;pelicanconf.py&lt;/code&gt;):
+I got from &lt;a href="http://crunk.io/post/introduction-to-pelican/"&gt;crunk.io&lt;/a&gt; the setup of clean&amp;nbsp;URLs:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;#clean URLs&lt;/span&gt;
+&lt;span class="n"&gt;ARTICLE_URL&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;{slug}/&amp;#39;&lt;/span&gt;
+&lt;span class="n"&gt;ARTICLE_SAVE_AS&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;{slug}/index.html&amp;#39;&lt;/span&gt;
+&lt;span class="n"&gt;PAGE_URL&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;{slug}/&amp;#39;&lt;/span&gt;
+&lt;span class="n"&gt;PAGE_SAVE_AS&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;{slug}/index.html&amp;#39;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;His post also has some useful info for setting the &lt;code&gt;MD_EXTENSIONS&lt;/code&gt; setting. &lt;/p&gt;
+&lt;h3 id="pelican-plugins"&gt;Pelican&amp;nbsp;Plugins&lt;/h3&gt;
+&lt;p&gt;The &lt;code&gt;pelican-plugins&lt;/code&gt; contains all the plugins from https://github.com/getpelican/pelican-plugins. You can define it as a submodule or generate it on the fly when building with&amp;nbsp;Travis. &lt;/p&gt;
+&lt;h3 id="theme"&gt;Theme&lt;/h3&gt;
+&lt;p&gt;In the &lt;code&gt;themes/&lt;/code&gt; folder you place the selected pelican theme. I&amp;#8217;ve used the &lt;a href="https://github.com/PurePelicanTheme/pure-single"&gt;Pure Single&lt;/a&gt;&amp;nbsp;theme. &lt;/p&gt;
+&lt;h2 id="step-4-building-with-travis"&gt;Step 4: Building with&amp;nbsp;Travis&lt;/h2&gt;
+&lt;p&gt;Setting up Travis was a bit tricky for me. There are different approaches for publishing the static pages. There is one approach where you create two repositories: one for the code and one for the static pages (the actual https://username.github.io website). I instead used the approach of having two branches in the &lt;a href="https://github.com/elenimikro/elenimikro.github.io"&gt;username.github.io&lt;/a&gt; repository, a &lt;code&gt;source&lt;/code&gt; one where the source code goes and the &lt;code&gt;master&lt;/code&gt;. I set it up to build with Travis &lt;span class="caps"&gt;CI&lt;/span&gt; and after a succesfull installation to invoke the Makefile for deploying the pages to the &lt;code&gt;master&lt;/code&gt; branch. &lt;/p&gt;
+&lt;h3 id="create-the-yaml-file"&gt;Create the yaml&amp;nbsp;file&lt;/h3&gt;
+&lt;p&gt;My &lt;code&gt;.travis.yml&lt;/code&gt; files looks like&amp;nbsp;this:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="l l-Scalar l-Scalar-Plain"&gt;language&lt;/span&gt;&lt;span class="p p-Indicator"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;python&lt;/span&gt;
+&lt;span class="l l-Scalar l-Scalar-Plain"&gt;python&lt;/span&gt;&lt;span class="p p-Indicator"&gt;:&lt;/span&gt; 
+&lt;span class="p p-Indicator"&gt;-&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;2.7&amp;quot;&lt;/span&gt;
+&lt;span class="l l-Scalar l-Scalar-Plain"&gt;sudo&lt;/span&gt;&lt;span class="p p-Indicator"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;required&lt;/span&gt;
+&lt;span class="l l-Scalar l-Scalar-Plain"&gt;branches&lt;/span&gt;&lt;span class="p p-Indicator"&gt;:&lt;/span&gt;
+  &lt;span class="l l-Scalar l-Scalar-Plain"&gt;only&lt;/span&gt;&lt;span class="p p-Indicator"&gt;:&lt;/span&gt;
+  &lt;span class="p p-Indicator"&gt;-&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;source&lt;/span&gt;
+&lt;span class="l l-Scalar l-Scalar-Plain"&gt;env&lt;/span&gt;&lt;span class="p p-Indicator"&gt;:&lt;/span&gt;
+  &lt;span class="l l-Scalar l-Scalar-Plain"&gt;global&lt;/span&gt;&lt;span class="p p-Indicator"&gt;:&lt;/span&gt;
+    &lt;span class="l l-Scalar l-Scalar-Plain"&gt;secure&lt;/span&gt;&lt;span class="p p-Indicator"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;XXXXXX&amp;quot;&lt;/span&gt;
+&lt;span class="l l-Scalar l-Scalar-Plain"&gt;install&lt;/span&gt;&lt;span class="p p-Indicator"&gt;:&lt;/span&gt;
+&lt;span class="p p-Indicator"&gt;-&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;pip install -r requirements.txt&lt;/span&gt;
+&lt;span class="p p-Indicator"&gt;-&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;pip install ghp-import&lt;/span&gt;
+&lt;span class="p p-Indicator"&gt;-&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;git clone https://github.com/getpelican/pelican-plugins&lt;/span&gt;
+&lt;span class="l l-Scalar l-Scalar-Plain"&gt;script&lt;/span&gt;&lt;span class="p p-Indicator"&gt;:&lt;/span&gt;
+&lt;span class="p p-Indicator"&gt;-&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;make publish github&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;The env block is added by the travis tool, so don&amp;#8217;t include it in the original yaml file. Login to Github to get an &lt;a href="https://help.github.com/articles/creating-an-access-token-for-command-line-use/"&gt;Authentication Token&lt;/a&gt;. Make sure the token has access to the repo:
+&lt;img alt="Github Authentication Token for Travis CI" src="https://elenimikro.github.io/images/Github-Travis-2016-09-18.png" /&gt;&lt;/p&gt;
+&lt;p&gt;In your local project, install the travis command line tool&amp;nbsp;with:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ sudo apt-get install ruby1.9.1-dev
+$ sudo gem install travis
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;and run from inside the&amp;nbsp;repository:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ travis encrypt &lt;span class="nv"&gt;GH_TOKEN&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;TOKENFROMGITHUB --add env.global 
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This adds the &lt;code&gt;env.global&lt;/code&gt; configuration in the &lt;code&gt;.travis.yml&lt;/code&gt;. &lt;/p&gt;
+&lt;p&gt;Also in the Travis &lt;span class="caps"&gt;CI&lt;/span&gt; project setup in the settings the follwing two variables:
+&lt;img alt="Travis CI settings" src="https://elenimikro.github.io/images/Travis-CI-2016-09-18.png" /&gt;&lt;/p&gt;
+&lt;p&gt;The &lt;code&gt;GH_TOKEN&lt;/code&gt; is your github Authentication Token for Travis &lt;span class="caps"&gt;CI&lt;/span&gt;. &lt;/p&gt;
+&lt;h2 id="step-5-edit-makefile"&gt;Step 5: edit&amp;nbsp;Makefile&lt;/h2&gt;
+&lt;p&gt;Edit the &lt;code&gt;Makefile&lt;/code&gt; on the &lt;code&gt;github publish&lt;/code&gt; section to look like&amp;nbsp;this:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="cp"&gt;#Edited the following lines to publish via travis&lt;/span&gt;
+&lt;span class="nl"&gt;github&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;publish&lt;/span&gt;
+    &lt;span class="n"&gt;ghp&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;import&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;OUTPUTDIR&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt; &lt;span class="n"&gt;master&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;m&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Generated by Travis&amp;quot;&lt;/span&gt;
+    &lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;push&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;fq&lt;/span&gt; &lt;span class="nl"&gt;https&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="c1"&gt;//${GH_TOKEN}@github.com/$(TRAVIS_REPO_SLUG).git master&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2 id="step-6-commit-build-and-deploy"&gt;Step 6: Commit, build and&amp;nbsp;deploy&lt;/h2&gt;
+&lt;p&gt;Commit and push the blog structure in the &lt;code&gt;source&lt;/code&gt;  branch of the repository. If the setup is successful it will trigger the Travis &lt;span class="caps"&gt;CI&lt;/span&gt; job, which will generate the static files and publish them in the &lt;code&gt;master&lt;/code&gt; branch. &lt;/p&gt;
+&lt;p&gt;My master branch structure like this: https://github.com/elenimikro/elenimikro.github.io/tree/master. The pages are automatically served in&amp;nbsp;https://elenimikro.github.io. &lt;/p&gt;
+&lt;h2 id="things-to-do"&gt;Things To&amp;nbsp;Do&lt;/h2&gt;
+&lt;p&gt;This is quite primitive yet. I need to setup &lt;span class="caps"&gt;DISQUS&lt;/span&gt; and get cracking with some more&amp;nbsp;content. &lt;/p&gt;</summary><category term="pelican"></category><category term="python"></category><category term="blog"></category><category term="travis-ci"></category></entry></feed>
